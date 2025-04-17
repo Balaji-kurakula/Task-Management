@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { CREATE_TASK } from '../graphql/mutations';
-// import './TaskForm.css';
+import './TaskForm.css';
 
 interface TaskFormProps {
   onTaskAdded: () => void;
@@ -36,7 +36,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onTaskAdded }) => {
           }
         }
       });
-      
+
       // Reset form
       setTitle('');
       setDescription('');
@@ -45,7 +45,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onTaskAdded }) => {
       setDueDate('');
       setIsRecurring(false);
       setRecurrencePattern('');
-      
+
       onTaskAdded();
     } catch (error) {
       console.error("Error creating task:", error);
@@ -54,30 +54,31 @@ const TaskForm: React.FC<TaskFormProps> = ({ onTaskAdded }) => {
 
   return (
     <form className="task-form" onSubmit={handleSubmit}>
-      <div className="form-row">
-        <input
-          type="text"
-          placeholder="Task title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-          className="form-input"
-        />
-      </div>
+      <div className='form-text'>
+        <div className="form-row">
+          <input
+            type="text"
+            placeholder="Task title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+            className="form-input"
+          />
+        </div>
 
-      <div className="form-row">
-        <textarea
-          placeholder="Description (optional)"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          className="form-textarea"
-        />
+        <div className="form-row">
+          <textarea
+            placeholder="Description (optional)"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="form-textarea"
+          />
+        </div>
       </div>
-
       <div className="form-grid">
         <div className="form-group">
           <label>Priority</label>
-          <select 
+          <select
             value={priority}
             onChange={(e) => setPriority(Number(e.target.value))}
             className="form-select"
@@ -139,8 +140,8 @@ const TaskForm: React.FC<TaskFormProps> = ({ onTaskAdded }) => {
       )}
 
       <div className="form-row">
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           className="submit-btn"
           disabled={loading}
         >

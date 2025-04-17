@@ -8,7 +8,7 @@ import {
 import { Task } from "../entities/Task";
 import { CreateTaskInput, UpdateTaskInput } from "../inputs/TaskInput";
 import { LessThan, MoreThanOrEqual } from "typeorm";
-
+  
 @Resolver()
 export class TaskResolver {
   // Query to get all tasks

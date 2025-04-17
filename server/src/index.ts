@@ -1,5 +1,3 @@
-// server/src/index.ts
-
 import "reflect-metadata";
 import { ApolloServer } from "@apollo/server";
 import express, { Application } from "express";
@@ -12,7 +10,7 @@ import { expressMiddleware } from "@apollo/server/express4";
 async function bootstrap() {
   // Initialize TypeORM DataSource
   await AppDataSource.initialize();
-  console.log("📦 Database connected");
+  console.log("Database connected");
 
   // Build GraphQL schema using TypeGraphQL and the resolver(s)
   const schema = await buildSchema({
@@ -49,11 +47,11 @@ async function bootstrap() {
   // Start the Expess server
   const PORT = 8001;
   app.listen(PORT, () => {
-    console.log(`🚀 Server ready at http://localhost:${PORT}/graphql`);
+    console.log(`Server ready at http://localhost:${PORT}/graphql`);
   });
 }
 
 // Start the server
 bootstrap().catch((error) => {
-  console.error("❌ Server failed to start", error);
+  console.error("Server failed to start", error);
 });

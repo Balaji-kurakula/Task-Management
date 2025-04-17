@@ -13,7 +13,7 @@ const App: React.FC = () => {
 
   const { loading, error, data, refetch } = useQuery(
     view === 'all' ? GET_TASKS : GET_TASKS_BY_STATUS,
-    {
+    { 
       variables: view !== 'all' ? { completed: view === 'completed' } : {},
       fetchPolicy: 'network-only'
     }

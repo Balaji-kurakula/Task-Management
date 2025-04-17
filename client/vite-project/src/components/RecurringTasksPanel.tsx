@@ -73,5 +73,4 @@ const RecurringTasksPanel: React.FC<RecurringTasksPanelProps> = ({ onTaskCreated
     </div>
   );
 };
-
 export default RecurringTasksPanel;
