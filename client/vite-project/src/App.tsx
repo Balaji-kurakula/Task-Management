@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { GET_TASKS, GET_TASKS_BY_STATUS } from './graphql/queries';
 import TaskList from './components/TaskList';

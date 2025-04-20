@@ -109,3 +109,14 @@
     grid-template-columns: 1fr;
   }
 }
+
+.edit-textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 5px;
+  font-size: 14px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}

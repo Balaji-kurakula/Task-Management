@@ -47,14 +47,13 @@ export class Task extends BaseEntity {
   @Column({ nullable: true })
   dueDate?: Date;
 
-  // These fields support the unique feature - recurring tasks
   @Field({ nullable: true })
   @Column({ nullable: true })
   isRecurring!: boolean;
 
   @Field({ nullable: true })
   @Column({ nullable: true })
-  recurrencePattern!: string; // daily, weekly, monthly, etc.
+  recurrencePattern!: string;
 
   @Field({ nullable: true })
   @Column({ nullable: true })

@@ -11,7 +11,6 @@ import { LessThan, MoreThanOrEqual } from "typeorm";
   
 @Resolver()
 export class TaskResolver {
-  // Query to get all tasks
   @Query(() => [Task])
   async tasks(): Promise<Task[]> {
     return Task.find({ order: { priority: "DESC", createdAt: "DESC" } });
@@ -23,7 +22,6 @@ export class TaskResolver {
   }
   
 
-  // Query to get tasks by completion status
   @Query(() => [Task])
   async tasksByStatus(@Arg("completed") completed: boolean): Promise<Task[]> {
     return Task.find({ 
@@ -32,7 +30,6 @@ export class TaskResolver {
     });
   }
 
-  // Query to get tasks by category
   @Query(() => [Task])
   async tasksByCategory(@Arg("category") category: string): Promise<Task[]> {
     return Task.find({ 
@@ -41,7 +38,6 @@ export class TaskResolver {
     });
   }
 
-  // Query to get tasks due today
   @Query(() => [Task])
   async tasksDueToday(): Promise<Task[]> {
     const today = new Date();
@@ -57,7 +53,6 @@ export class TaskResolver {
     });
   }
 
-  // Query to get overdue tasks
   @Query(() => [Task])
   async overdueTasks(): Promise<Task[]> {
     const today = new Date();
@@ -72,7 +67,7 @@ export class TaskResolver {
     });
   }
 
-  // Mutation to create a task
+  
   @Mutation(() => Task)
   async createTask(
     @Arg("input") input: CreateTaskInput
@@ -84,7 +79,7 @@ export class TaskResolver {
     return task;
   }
 
-  // Mutation to update a task
+
   @Mutation(() => Task)
   async updateTask(
     @Arg("id", () => ID) id: number,
@@ -98,7 +93,7 @@ export class TaskResolver {
     return task;
   }
 
-  // Mutation to delete a task
+
   @Mutation(() => Boolean)
   async deleteTask(@Arg("id", () => ID) id: number): Promise<boolean> {
     const task = await Task.findOne({ where: { id } });
@@ -108,7 +103,6 @@ export class TaskResolver {
     return true;
   }
 
-  // Mutation to toggle task completion status
   @Mutation(() => Task)
   async toggleTaskStatus(@Arg("id", () => ID) id: number): Promise<Task> {
     const task = await Task.findOne({ where: { id } });
